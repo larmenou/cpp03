@@ -2,7 +2,7 @@ CPP			:= c++
 CFLAGS		:= -g -Wall -Wextra -Werror -std=c++98
 OBJFLAGS 	:= -c
 
-NAME		:= ClapTrap
+NAME		:= ScavTrap
 
 SRCS_F		:= 	main \
 				ClapTrap \

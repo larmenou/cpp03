@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 10:45:04 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/08 16:05:19 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:14:27 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 ClapTrap::ClapTrap()
 {
 	this->_name = "";
+	this->_maxHitPoints = 10;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDmg = 0;
@@ -25,19 +26,31 @@ ClapTrap::ClapTrap()
 ClapTrap::ClapTrap(std::string name)
 {
 	this->_name = name;
+	this->_maxHitPoints = 10;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDmg = 0;
-	std::cout << this->_name << " is created !" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " is created !" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name, int hitPoints, int energyPoints, int attackDmg)
+{
+	this->_name = name;
+	this->_maxHitPoints = hitPoints;
+	this->_hitPoints = hitPoints;
+	this->_energyPoints = energyPoints;
+	this->_attackDmg = attackDmg;
+	std::cout << "ClapTrap " << this->_name << " is created !" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& copy)
 {
 	_name = copy._name;
+	_maxHitPoints = copy._maxHitPoints;
 	_hitPoints = copy._hitPoints;
 	_energyPoints = copy._energyPoints;
 	_attackDmg = copy._attackDmg;
-	std::cout << _name << " is created !" << std::endl;
+	std::cout << "ClapTrap " << _name << " is created !" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& copy)
@@ -45,6 +58,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& copy)
 	if (this != &copy)
 	{
 		_name = copy._name;
+		_maxHitPoints = copy._maxHitPoints;
 		_hitPoints = copy._hitPoints;
 		_energyPoints = copy._energyPoints;
 		_attackDmg = copy._attackDmg;
@@ -86,7 +100,10 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_hitPoints > 0 && this->_energyPoints > 0)
 	{
-		this->_hitPoints += amount;
+		if (this->_hitPoints + amount > this->_maxHitPoints)
+			this->_hitPoints = _maxHitPoints;
+		else
+			this->_hitPoints += amount;
 		this->_energyPoints --;
 		std::cout << this->_name << " repairs itself with " << amount << " hit points. Its new hit points are : " << this->_hitPoints << std::endl;
 	}

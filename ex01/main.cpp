@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 10:45:28 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/08 16:10:17 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:01:43 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 int main()
 {
 	ClapTrap alice("Alice");
-	ClapTrap bob("Bob");
+	ScavTrap bob("Bob");
 	
-	alice.attack("Bob");
-	bob.takeDamage(4);
+	alice.ClapTrap::attack("Bob");
+	bob.takeDamage(0);
 	bob.beRepaired(2);
 	
-	bob.attack("Alice");
-	alice.takeDamage(4);
-	alice.attack("Bob");
+	bob.ScavTrap::attack("Alice");
+	alice.takeDamage(20);
+	alice.ClapTrap::attack("Bob");
 	bob.takeDamage(4);
-	alice.attack("Bob");
-	bob.takeDamage(6);
+	
 	bob.beRepaired(5);
+	bob.guardGate();
 	return (0);
 }

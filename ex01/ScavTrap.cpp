@@ -6,28 +6,30 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:33:07 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/08 16:09:52 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:16:19 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap::ClapTrap("", 100, 50, 20)
 {
-	this->_name = "";
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDmg = 20;
 	std::cout << "Default ScavTrap constructor called." << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string name) : ClapTrap::ClapTrap(name, 100, 50, 20)
+{
+	std::cout << "ScavTrap " << this->_name << " is created !" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& copy)
 {
 	_name = copy._name;
+	_maxHitPoints = copy._maxHitPoints;
 	_hitPoints = copy._hitPoints;
 	_energyPoints = copy._energyPoints;
 	_attackDmg = copy._attackDmg;
-	std::cout << _name << " is created !" << std::endl;
+	std::cout << "ScavTrap " << _name << " is created !" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& copy)
@@ -35,6 +37,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& copy)
 	if (this != &copy)
 	{
 		_name = copy._name;
+		_maxHitPoints = copy._maxHitPoints;
 		_hitPoints = copy._hitPoints;
 		_energyPoints = copy._energyPoints;
 		_attackDmg = copy._attackDmg;
@@ -47,7 +50,18 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap destructor called." << std::endl;
 }
 
+void ScavTrap::attack(const std::string& target)
+{
+	if (this->_energyPoints > 0 && this->_hitPoints > 0)
+	{
+		this->_energyPoints --;
+		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDmg << " points of damage!" << std::endl;
+	}
+	else
+		std::cout << this->_name << " has no energy points or hit points available for this attack !" << std::endl;
+}
+
 void ScavTrap::guardGate()
 {
-	std::cout << "Guard Mode activated." << std::endl;
+	std::cout << "ScavTrap " << this->_name << ": Guard Mode activated." << std::endl;
 }
