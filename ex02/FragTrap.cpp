@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:58:54 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/09 15:11:49 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/12 09:39:18 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap destructor called." << std::endl;
 }
 
-void FragTrap::highFivesGuys(void)
+void FragTrap::highFivesGuys(void) const
 {
 	std::cout << "Hey guys, give me high fives !" << std::endl;
 }

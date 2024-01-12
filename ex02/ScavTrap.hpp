@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:33:10 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/09 09:32:05 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/12 09:38:51 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ScavTrap : public ClapTrap
 		~ScavTrap();
 
 		void attack(const std::string& target);
-		void guardGate();
+		void guardGate() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:33:07 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/09 12:16:19 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/12 09:38:25 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void ScavTrap::attack(const std::string& target)
 		std::cout << this->_name << " has no energy points or hit points available for this attack !" << std::endl;
 }
 
-void ScavTrap::guardGate()
+void ScavTrap::guardGate() const
 {
 	std::cout << "ScavTrap " << this->_name << ": Guard Mode activated." << std::endl;
 }

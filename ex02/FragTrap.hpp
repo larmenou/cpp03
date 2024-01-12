@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:58:56 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/09 15:11:00 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/12 09:39:24 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class FragTrap : public ClapTrap
 		FragTrap& operator=(FragTrap const & copy);
 		~FragTrap();
 
-		void highFivesGuys(void);
+		void highFivesGuys(void) const;
 };
 
 #endif

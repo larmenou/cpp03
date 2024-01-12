@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 10:45:28 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/09 15:13:44 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:44:04 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int main()
 	ClapTrap alice("Alice");
 	ScavTrap bob("Bob");
 	FragTrap charlie("Charlie");
+	
+	std::cout << std::endl;
 	
 	alice.ClapTrap::attack("Bob");
 	bob.takeDamage(0);
@@ -41,6 +43,8 @@ int main()
 	charlie.takeDamage(20);
 	charlie.beRepaired(25);
 	charlie.highFivesGuys();
+
+	std::cout << std::endl;
 	
 	return (0);
 }
