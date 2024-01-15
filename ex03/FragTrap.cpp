@@ -6,13 +6,13 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:58:54 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/12 12:15:49 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/15 13:15:43 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap::ClapTrap("default", 100, 100, 30)
+FragTrap::FragTrap() : ClapTrap::ClapTrap("Default", 100, 100, 30)
 {
 	std::cout << "Default FragTrap constructor called." << std::endl;
 }
@@ -41,16 +41,17 @@ FragTrap& FragTrap::operator=(const FragTrap& copy)
 		_hitPoints = copy._hitPoints;
 		_energyPoints = copy._energyPoints;
 		_attackDmg = copy._attackDmg;
+		std::cout << "FragTrap " << _name << " is created with =." << std::endl;
 	}
 	return (*this);
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap destructor called." << std::endl;
+	std::cout << _name << " FragTrap destructor called." << std::endl;
 }
 
 void FragTrap::highFivesGuys(void) const
 {
-	std::cout << "Hey guys, give me high fives !" << std::endl;
+	std::cout << "FragTrap " << _name << ": Hey guys, give me high fives !" << std::endl;
 }

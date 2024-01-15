@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 12:40:33 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/12 12:25:55 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/15 13:16:43 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap::ClapTrap("default_clap_name", 100, 50, 30)
 {
-	this->_name = "default";
+	this->_name = "Default";
 	std::cout << "Default DiamondTrap constructor called." << std::endl;
 }
 
@@ -36,7 +36,7 @@ DiamondTrap::DiamondTrap(DiamondTrap& copy)
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "DiamondTrap destructor called." << std::endl;
+	std::cout << _name << " DiamondTrap destructor called." << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(DiamondTrap const& copy)
@@ -48,6 +48,7 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap const& copy)
 		_hitPoints = copy._hitPoints;
 		_energyPoints = copy._energyPoints;
 		_attackDmg = copy._attackDmg;
+		std::cout << "DiamondTrap " << _name << " is created with =." << std::endl;
 	}
 	return (*this);
 }
@@ -59,5 +60,5 @@ void DiamondTrap::attack(const std::string& target)
 
 void DiamondTrap::whoAmI() const
 {
-	std::cout << "I am " << this->_name << "... but I am also " << ClapTrap::_name << ". Wh... Who am I ...?" << std::endl;
+	std::cout << "DiamondTrap " << this->_name << ": I am " << this->_name << "... but I am also " << ClapTrap::_name << ". Wh... Who am I ...?" << std::endl;
 }

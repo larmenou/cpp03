@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 10:44:52 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/08 12:54:21 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:29:21 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class ClapTrap
 		int _hitPoints;
 		int _energyPoints;
 		int _attackDmg;
+		int _maxHitPoints;
 
 };
 

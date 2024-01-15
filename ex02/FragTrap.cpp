@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:58:54 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/12 09:39:18 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/15 13:05:14 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 FragTrap::FragTrap()
 {
-	this->_name = "default";
+	this->_name = "Default";
 	this->_hitPoints = 100;
 	this->_maxHitPoints = 100;
 	this->_energyPoints = 100;
@@ -51,16 +51,17 @@ FragTrap& FragTrap::operator=(const FragTrap& copy)
 		_hitPoints = copy._hitPoints;
 		_energyPoints = copy._energyPoints;
 		_attackDmg = copy._attackDmg;
+		std::cout << "FragTrap " << _name << " is created with =." << std::endl;
 	}
 	return (*this);
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap destructor called." << std::endl;
+	std::cout << _name << " FragTrap destructor called." << std::endl;
 }
 
 void FragTrap::highFivesGuys(void) const
 {
-	std::cout << "Hey guys, give me high fives !" << std::endl;
+	std::cout << "FragTrap " << _name << ": \"Hey guys, give me high five !\"" << std::endl;
 }

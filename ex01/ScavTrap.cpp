@@ -6,13 +6,13 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:33:07 by larmenou          #+#    #+#             */
-/*   Updated: 2024/01/12 09:38:25 by larmenou         ###   ########.fr       */
+/*   Updated: 2024/01/15 12:56:10 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap::ClapTrap("", 100, 50, 20)
+ScavTrap::ScavTrap() : ClapTrap::ClapTrap("Default", 100, 50, 20)
 {
 	std::cout << "Default ScavTrap constructor called." << std::endl;
 }
@@ -41,13 +41,14 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& copy)
 		_hitPoints = copy._hitPoints;
 		_energyPoints = copy._energyPoints;
 		_attackDmg = copy._attackDmg;
+		std::cout << "ScavTrap " << _name << " is created with =." << std::endl;
 	}
 	return (*this);
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap destructor called." << std::endl;
+	std::cout << _name << " ScavTrap destructor called." << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)
@@ -58,7 +59,7 @@ void ScavTrap::attack(const std::string& target)
 		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDmg << " points of damage!" << std::endl;
 	}
 	else
-		std::cout << this->_name << " has no energy points or hit points available for this attack !" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " has no energy points or hit points available for this attack !" << std::endl;
 }
 
 void ScavTrap::guardGate() const
